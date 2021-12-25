@@ -1,0 +1,21 @@
+<h1>New Task</h1>
+
+<% @task.errors.full_messages.each do |message| %>
+  <H1><%= @task.errors.full_messages%></H1>
+  <H1><% message%></H1>
+  <H1><%= message%></H1>
+  <p><%="Title cant be blank"%></p> 
+  <% if message == "Title can't be blank"%>
+    <% puts "It's true here", @task.title%>
+  <%end%>
+<% end %>
+
+<%= form_for @task do |f|%>
+  <%= f.label "Title:"%><br>
+  <%=f.text_field :title %><br>
+  <%= f.label "Details:"%><br>
+  <%= f.text_area :details %><br>
+  <%= f.label "Completed" %>
+  <%= f.check_box :completed %><br>
+  <%=f.submit%>
+<% end %>

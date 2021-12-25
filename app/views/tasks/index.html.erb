@@ -1,0 +1,13 @@
+<h1>To Do: </h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <strong><%= link_to task.title, task_path(task) %></strong>
+      <p>Completed: <%= task.completed ? true : false%></p>
+      <p><%=link_to "Toggle Completion", "/tasks/#{task.id}/complete/#{task.completed}"%></p>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Task", new_task_path %>
